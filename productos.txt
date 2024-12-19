@@ -1,0 +1,4 @@
+1. Apuestas Basadas en el Ahorro Energético: 
+Idea: Una app que conecta hogares o empresas para "competir" sobre quién puede ahorrar más energía en un período de tiempo. Los participantes apuestan una cantidad inicial, y los ganadores (los que ahorren más energía) se llevan un porcentaje.
+Innovación: Incentiva el ahorro energético de forma divertida y competitiva.
+
