@@ -215,7 +215,7 @@
                     </button>
 
                     <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
-                        <a class="navbar-brand col-lg-3 me-0" href="#">Centered nav</a>
+                        <a class="navbar-brand col-lg-3 me-0" href="#">BetRG</a>
                         <ul class="navbar-nav col-lg-6 justify-content-lg-center">
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Home</a>
@@ -237,7 +237,7 @@
                             </li>
                         </ul>
                         <div class="d-lg-flex col-lg-3 justify-content-lg-end">
-                            <button class="btn btn-primary">Contact</button>
+                            <a href="#contactForm" class="btn btn-primary">Contact</a>
                         </div>
                     </div>
                 </div>
@@ -278,12 +278,125 @@
                     </div>
                 </div>
             </div>
+    </main>
+    
+    
+    <footer>
+        <div class="container-fluid text-white" style="background-color: #4e4e4e;">
+            <div class="py-5 ms-5 me-5">
+              <div class="row">
+                <div class="col-6 col-md-2 mb-3">
+                  <h5>Section 1</h5>
+                  <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">About</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Pricing</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">FAQs</a></li>
+                  </ul>
+                </div>
+          
+                <div class="col-6 col-md-2 mb-3">
+                  <h5>Section 2</h5>
+                  <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">About</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Pricing</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">FAQs</a></li>
+                  </ul>
+                </div>
+          
+                <div class="col-6 col-md-2 mb-3">
+                  <h5>Section 3</h5>
+                  <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">About</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Pricing</a></li>
+                  </ul>
+                </div>
 
-        </main>
+                
+              <div class="col-md-5 offset-md-1 mb-3" id="contactForm">
+                <form class="needs-validation" novalidate="">
+                    <div class="row g-3">
+                      <div class="col-sm-6">
+                        <label for="firstName" class="form-label">First name</label>
+                        <input type="text" class="form-control" id="firstName" value="" required="">
+                        <div class="invalid-feedback">
+                          Valid first name is required.
+                        </div>
+                      </div>
+          
+                      <div class="col-sm-6">
+                        <label for="lastName" class="form-label">Last name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                        <div class="invalid-feedback">
+                          Valid last name is required.
+                        </div>
+                      </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
+                      <div class="col-sm-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                        <div class="invalid-feedback">
+                          Please enter a valid email address for shipping updates.
+                        </div>
+                      </div>
+
+                      <div class="col-sm-6">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="tel" class="form-control" id="phone">
+                        <div class="invalid-feedback">
+                          Please enter a valid phone.
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <label for="subject" class="form-label">Subject</label>
+                        <select class="form-select" id="subject" required>
+                            <option value="">Choose...</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="support">Support</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a valid subject.
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="3" required></textarea>
+                        <div class="invalid-feedback">
+                            Please enter a message in the textarea.
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <button class="w-100 btn btn-success btn-lg" type="submit">Submit</button>
+                </form>
+              </div>
+              </div>
+            </div>
+             <div class="d-flex flex-column flex-sm-column justify-content-between py-4 my-4 border-top">
+                <p>Fuente Adamina: Copyright (c) 2011, Cyreal (www.cyreal.org), with Reserved Font Name 'Adamina'.</p>
+                <p>Fuente Fira Sans: Copyright (c) 2012-2015, The Mozilla Foundation and Telefonica S.A.</p>
+                <p>Fuente Poly: Copyright (c) 2010, 2011 José Nicolás Silva Schwarzenberg , with Reserved Font Names "Poly".</p>
+                <ul class="list-unstyled d-flex">
+                  <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+                  <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+                  <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+                </ul>
+              </div>
+          </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
