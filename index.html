@@ -8,442 +8,509 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="icon" href="assets/Images/Ico.ico" type="image/x-icon">
-    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'Adamina';
+            src: url('assets/fonts/Adamina-Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Fira Sans';
+            src: url('assets/fonts/FiraSans-Regular.ttf') format('truetype');
+            font-weight: 400;
+        }
+
+        @font-face {
+            font-family: 'Poly';
+            src: url('assets/fonts/Poly-Regular.ttf') format('truetype');
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Adamina', serif;
+        }
+
+        body,
+        p,
+        a,
+        li,
+        button {
+            font-family: 'Fira Sans', sans-serif;
+        }
+
+        .secondary-text {
+            font-family: 'Poly', serif;
+        }
+    </style>
+    <title>BetRG</title>
 </head>
 
-    <body style="overflow-x: hidden;">
-        <div class="container-fluid px-0">
-            <div class="position-relative overflow-hidden">
-                <video autoplay muted loop class="position-absolute w-100 h-100" style="object-fit: cover;">
-                    <source src="assets/Videos/hero_video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="position-relative" style="z-index: 1; background-color: rgba(0, 0, 0, 0.5);">
-                    <div class="row p-3 mx-0">
-                        <div class="col-6">
-                            <img src="assets/Images/Logo Header.png" alt="Logo" class="img-fluid">
-                        </div>
-                        <div class="col-6 text-end d-lg-none">
-                            <button class="btn btn-success me-2" data-bs-toggle="offcanvas"
-                                data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
-                                <i class="bi bi-list"></i>
-                            </button>
-                        </div>
-                        <div class="col-6 text-end d-none d-lg-block">
-                            <button class="btn btn-success me-2" data-bs-toggle="collapse"
-                                data-bs-target="#collapseLogin" aria-expanded="false" aria-controls="collapseLogin"
-                                onclick="document.getElementById('collapseRegister').classList.remove('show');">Login</button>
-                            <button class="btn btn-secondary" id="registerForm" data-bs-toggle="collapse"
-                                data-bs-target="#collapseRegister" aria-expanded="false"
-                                aria-controls="collapseRegister"
-                                onclick="document.getElementById('collapseLogin').classList.remove('show');">Register</button>
+<body style="overflow-x: hidden;">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="twitter" viewBox="0 0 16 16">
+            <path
+                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.423A6.68 6.68 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.084.797 3.286 3.286 0 0 0-5.596 2.994A9.325 9.325 0 0 1 1.114 2.1 3.286 3.286 0 0 0 2.13 8.723a3.323 3.323 0 0 1-1.487-.41v.041a3.288 3.288 0 0 0 2.633 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.615-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 0 13.539a9.29 9.29 0 0 0 5.031 1.475" />
+        </symbol>
+        <symbol id="instagram" viewBox="0 0 16 16">
+            <path
+                d="M8 0C5.8 0 5.555.01 4.703.048 3.852.087 3.27.22 2.77.418a4.92 4.92 0 0 0-1.79 1.19A4.92 4.92 0 0 0 .418 3.77c-.198.5-.33 1.082-.37 1.933C0 5.555 0 5.8 0 8s.01 2.445.048 3.297c.04.85.172 1.432.37 1.933a4.92 4.92 0 0 0 1.19 1.79 4.92 4.92 0 0 0 1.79 1.19c.5.198 1.082.33 1.933.37.852.038 1.097.048 3.297.048s2.445-.01 3.297-.048c.85-.04 1.432-.172 1.933-.37a4.92 4.92 0 0 0 1.79-1.19 4.92 4.92 0 0 0 1.19-1.79c.198-.5.33-1.082.37-1.933.038-.852.048-1.097.048-3.297s-.01-2.445-.048-3.297c-.04-.85-.172-1.432-.37-1.933a4.92 4.92 0 0 0-1.19-1.79 4.92 4.92 0 0 0-1.79-1.19c-.5-.198-1.082-.33-1.933-.37C10.445.01 10.2 0 8 0zm0 1.438c2.17 0 2.42.01 3.27.048.78.035 1.203.166 1.485.276.374.145.64.318.92.598.28.28.453.546.598.92.11.282.24.705.276 1.485.038.852.048 1.1.048 3.27s-.01 2.42-.048 3.27c-.035.78-.166 1.203-.276 1.485a3.48 3.48 0 0 1-.598.92 3.48 3.48 0 0 1-.92.598c-.282.11-.705.24-1.485.276-.852.038-1.1.048-3.27.048s-2.42-.01-3.27-.048c-.78-.035-1.203-.166-1.485-.276a3.48 3.48 0 0 1-.92-.598 3.48 3.48 0 0 1-.598-.92c-.11-.282-.24-.705-.276-1.485-.038-.852-.048-1.1-.048-3.27s.01-2.42.048-3.27c.035-.78.166-1.203.276-1.485a3.48 3.48 0 0 1 .598-.92 3.48 3.48 0 0 1 .92-.598c.282-.11.705-.24 1.485-.276.852-.038 1.1-.048 3.27-.048zM8 3.89a4.11 4.11 0 1 0 0 8.22 4.11 4.11 0 0 0 0-8.22zm0 1.438a2.67 2.67 0 1 1 0 5.34 2.67 2.67 0 0 1 0-5.34zm5.203-.438a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92z" />
+        </symbol>
+        <symbol id="facebook" viewBox="0 0 16 16">
+            <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.93 2.86 7.19 6.58 7.88v-5.56H4.69V8h1.89V6.22c0-1.87 1.1-2.89 2.78-2.89.81 0 1.66.14 1.66.14v1.83h-.94c-.93 0-1.22.58-1.22 1.17V8h2.08l-.33 2.32H8.87v5.56C12.14 15.19 15 11.93 15 8c0-4.42-3.58-8-8-8z" />
+        </symbol>
+    </svg>
+    <div class="container-fluid px-0">
+        <div class="position-relative overflow-hidden">
+            <video autoplay muted loop class="position-absolute w-100 h-100" style="object-fit: cover;">
+                <source src="assets/Videos/hero_video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="position-relative" style="z-index: 1; background-color: rgba(0, 0, 0, 0.5);">
+                <div class="row p-3 mx-0">
+                    <div class="col-6">
+                        <img src="assets/Images/Logo Header.png" alt="Logo" class="img-fluid">
+                    </div>
+                    <div class="col-6 text-end d-lg-none">
+                        <button class="btn btn-success me-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu"
+                            aria-controls="offcanvasMenu">
+                            <i class="bi bi-list"></i>
+                        </button>
+                    </div>
+                    <div class="col-6 text-end d-none d-lg-block">
+                        <button class="btn btn-success me-2" data-bs-toggle="collapse" data-bs-target="#collapseLogin"
+                            aria-expanded="false" aria-controls="collapseLogin"
+                            onclick="document.getElementById('collapseRegister').classList.remove('show');">Login</button>
+                        <button class="btn btn-secondary" id="registerForm" data-bs-toggle="collapse"
+                            data-bs-target="#collapseRegister" aria-expanded="false" aria-controls="collapseRegister"
+                            onclick="document.getElementById('collapseLogin').classList.remove('show');">Register</button>
 
-                            <div class="collapse position-absolute top-3 end-0" id="collapseLogin">
-                                <div class="card card-body" style="width: 18rem;">
-                                    <button type="button" class="btn-close" aria-label="Close" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseLogin"></button>
-                                    <form>
-                                        <h1 class="h3 mb-3 fw-normal text-center">Please login</h1>
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="floatingInput"
-                                                placeholder="name@example.com">
-                                            <label for="floatingInput">Username</label>
-                                        </div>
-                                        <div class="form-floating">
-                                            <input type="password" class="form-control" id="floatingPassword"
-                                                placeholder="Password">
-                                            <label for="floatingPassword">Password</label>
-                                        </div>
-                                        <div class="form-check text-start my-3">
-                                            <input class="form-check-input" type="checkbox" value="remember-me"
-                                                id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">Remember me</label>
-                                        </div>
-                                        <button class="btn btn-success w-100 py-2" type="submit">Sign in</button>
-                                    </form>
-                                </div>
+                        <div class="collapse position-absolute top-3 end-0" id="collapseLogin">
+                            <div class="card card-body" style="width: 18rem;">
+                                <button type="button" class="btn-close" aria-label="Close" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseLogin"></button>
+                                <form>
+                                    <h1 class="h3 mb-3 fw-normal text-center">Please login</h1>
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="floatingInput"
+                                            placeholder="name@example.com">
+                                        <label for="floatingInput">Username</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="password" class="form-control" id="floatingPassword"
+                                            placeholder="Password">
+                                        <label for="floatingPassword">Password</label>
+                                    </div>
+                                    <div class="form-check text-start my-3">
+                                        <input class="form-check-input" type="checkbox" value="remember-me"
+                                            id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">Remember me</label>
+                                    </div>
+                                    <button class="btn btn-success w-100 py-2" type="submit">Sign in</button>
+                                </form>
                             </div>
+                        </div>
 
-                            <div class="collapse position-absolute top-3 end-0" id="collapseRegister">
-                                <div class="card card-body w-100">
-                                    <button type="button" class="btn-close" aria-label="Close" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseRegister"></button>
-                                    <form>
-                                        <h1 class="h3 mb-3 fw-normal text-center">Please register</h1>
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="registerUsername"
-                                                placeholder="Username" required>
-                                            <label for="registerUsername">Username</label>
-                                        </div>
-                                        <div class="form-floating mb-3">
-                                            <input type="email" class="form-control" id="registerEmail"
-                                                placeholder="Email" required>
-                                            <label for="registerEmail">Email</label>
-                                        </div>
-                                        <div class="form-floating mb-3">
-                                            <input type="password" class="form-control" id="registerPassword"
-                                                placeholder="Password" required>
-                                            <label for="registerPassword">Password</label>
-                                        </div>
-                                        <div class="form-floating mb-3">
-                                            <input type="password" class="form-control" id="confirmPassword"
-                                                placeholder="Confirm Password" required>
-                                            <label for="confirmPassword">Confirm Password</label>
-                                        </div>
-                                        <div class="form-check text-start my-3">
-                                            <input class="form-check-input" type="checkbox" value="terms"
-                                                id="termsCheck" required>
-                                            <label class="form-check-label" for="termsCheck">
-                                                I agree to the <a href="#">terms and conditions</a>
-                                            </label>
-                                        </div>
-                                        <button class="btn btn-secondary w-100 py-2" type="submit">Register</button>
-                                    </form>
-                                </div>
+                        <div class="collapse position-absolute top-3 end-0" id="collapseRegister">
+                            <div class="card card-body w-100">
+                                <button type="button" class="btn-close" aria-label="Close" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseRegister"></button>
+                                <form>
+                                    <h1 class="h3 mb-3 fw-normal text-center">Please register</h1>
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="registerUsername"
+                                            placeholder="Username" required>
+                                        <label for="registerUsername">Username</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input type="email" class="form-control" id="registerEmail" placeholder="Email"
+                                            required>
+                                        <label for="registerEmail">Email</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input type="password" class="form-control" id="registerPassword"
+                                            placeholder="Password" required>
+                                        <label for="registerPassword">Password</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input type="password" class="form-control" id="confirmPassword"
+                                            placeholder="Confirm Password" required>
+                                        <label for="confirmPassword">Confirm Password</label>
+                                    </div>
+                                    <div class="form-check text-start my-3">
+                                        <input class="form-check-input" type="checkbox" value="terms" id="termsCheck"
+                                            required>
+                                        <label class="form-check-label" for="termsCheck">
+                                            I agree to the <a href="#">terms and conditions</a>
+                                        </label>
+                                    </div>
+                                    <button class="btn btn-secondary w-100 py-2" type="submit">Register</button>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    <div class="row align-items-center g-lg-5 py-5 mx-0">
-                        <div class="col-lg-7 text-center text-lg-start py-5 my-5 px-5">
-                            <h1 class="display-4 fw-bold lh-1 text-success mb-3">Welcome to BetRG</h1>
-                            <p class="col-lg-10 fs-4 text-white">BetRG is a betting platform dedicated to promoting the
-                                use of renewable energy. Join us and bet on a greener future.</p>
-                        </div>
+                </div>
+                <div class="row align-items-center g-lg-5 py-5 mx-0">
+                    <div class="col-lg-7 text-center text-lg-start py-5 my-5 px-5">
+                        <h1 class="display-4 fw-bold lh-1 text-success mb-3">Welcome to BetRG</h1>
+                        <p class="col-lg-10 fs-4 text-white">BetRG is a betting platform dedicated to promoting the
+                            use of renewable energy. Join us and bet on a greener future.</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasMenuLabel">Menu</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <button class="btn btn-success w-100 mb-2" data-bs-toggle="collapse" data-bs-target="#collapseLogin"
-                    aria-expanded="false" aria-controls="collapseLogin"
-                    onclick="document.getElementById('collapseRegister').classList.remove('show');">Login</button>
-                <button class="btn btn-secondary w-100" data-bs-toggle="collapse" data-bs-target="#collapseRegister"
-                    aria-expanded="false" aria-controls="collapseRegister"
-                    onclick="document.getElementById('collapseLogin').classList.remove('show');">Register</button>
-                <div class="collapse mt-3" id="collapseLogin">
-                    <div class="card card-body">
-                        <button type="button" class="btn-close" aria-label="Close" data-bs-toggle="collapse"
-                            data-bs-target="#collapseLogin"></button>
-                        <form>
-                            <h1 class="h3 mb-3 fw-normal text-center">Please login</h1>
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInput"
-                                    placeholder="name@example.com">
-                                <label for="floatingInput">Username</label>
-                            </div>
-                            <div class="form-floating">
-                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                                <label for="floatingPassword">Password</label>
-                            </div>
-                            <div class="form-check text-start my-3">
-                                <input class="form-check-input" type="checkbox" value="remember-me"
-                                    id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">Remember me</label>
-                            </div>
-                            <button class="btn btn-success w-100 py-2" type="submit">Sign in</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="collapse mt-3" id="collapseRegister">
-                    <div class="card card-body">
-                        <button type="button" class="btn-close" aria-label="Close" data-bs-toggle="collapse"
-                            data-bs-target="#collapseRegister"></button>
-                        <form>
-                            <h1 class="h3 mb-3 fw-normal text-center">Please register</h1>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="registerUsername" placeholder="Username"
-                                    required>
-                                <label for="registerUsername">Username</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="registerEmail" placeholder="Email" required>
-                                <label for="registerEmail">Email</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="registerPassword" placeholder="Password"
-                                    required>
-                                <label for="registerPassword">Password</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="confirmPassword"
-                                    placeholder="Confirm Password" required>
-                                <label for="confirmPassword">Confirm Password</label>
-                            </div>
-                            <div class="form-check text-start my-3">
-                                <input class="form-check-input" type="checkbox" value="terms" id="termsCheck" required>
-                                <label class="form-check-label" for="termsCheck">
-                                    I agree to the <a href="#">terms and conditions</a>
-                                </label>
-                            </div>
-                            <button class="btn btn-secondary w-100 py-2" type="submit">Register</button>
-                        </form>
-                    </div>
-                </div>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Community</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Blog</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                            aria-expanded="false">Games</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">EcoRoulette</a></li>
-                            <li><a class="dropdown-item" href="#">EcoChallenge</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+    </div>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasMenuLabel">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="d-none d-lg-block">
-            <nav class="navbar navbar-expand-lg bg-success" aria-label="Thirteenth navbar example">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
-                        <a class="navbar-brand col-lg-3 me-0" href="#">BetRG</a>
-                        <ul class="navbar-nav col-lg-6 justify-content-lg-center">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Community</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Blog</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                                    aria-expanded="false">Games</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">EcoRoulette</a></li>
-                                    <li><a class="dropdown-item" href="#">EcoChallenge</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="d-lg-flex col-lg-3 justify-content-lg-end">
-                            <a href="#contactForm" class="btn btn btn-outline-dark">Contact</a>
+        <div class="offcanvas-body">
+            <button class="btn btn-success w-100 mb-2" data-bs-toggle="collapse" data-bs-target="#collapseLogin"
+                aria-expanded="false" aria-controls="collapseLogin"
+                onclick="document.getElementById('collapseRegister').classList.remove('show');">Login</button>
+            <button class="btn btn-secondary w-100" data-bs-toggle="collapse" data-bs-target="#collapseRegister"
+                aria-expanded="false" aria-controls="collapseRegister"
+                onclick="document.getElementById('collapseLogin').classList.remove('show');">Register</button>
+            <div class="collapse mt-3" id="collapseLogin">
+                <div class="card card-body">
+                    <button type="button" class="btn-close" aria-label="Close" data-bs-toggle="collapse"
+                        data-bs-target="#collapseLogin"></button>
+                    <form>
+                        <h1 class="h3 mb-3 fw-normal text-center">Please login</h1>
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Username</label>
                         </div>
-                    </div>
-                </div>
-            </nav>
-        </div>
-        <main class="row justify-content-md-center mx-0">
-            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 mx-0" id="cards">
-                <div class="col text-center my-0">
-                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1"
-                            style="background-image: url('assets/Images/EcoRoulette.jpg'); background-size: cover; background-position: center;">
-                            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-center">Donate a
-                                portion of your electric savings and invest them in ecological solutions</h3>
-                            <button class="btn btn-success rounded-pill px-3 mt-auto" type="button">EcoRoulette</button>
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Password</label>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col text-center my-0">
-                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
-                        style="background-image: url('assets/Images/Eco-challenge.png'); background-size: cover; background-position: center;">
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"> 
-                                Save more energy than others and win rewards. Compete, bet, and help the planet!
-                            </h3>
-                            <button class="btn btn-success rounded-pill px-3 mt-auto" type="button">EcoChallenge</button>
+                        <div class="form-check text-start my-3">
+                            <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">Remember me</label>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col text-center my-0">
-                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
-                        style="background-image: url('assets/Images/WindSlots.jpg'); background-size: cover; background-position: center;">
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Where renewable energy meets thrilling spins—play, win, and feel the power of the wind fueling your luck!</h3>
-                            <button class="btn btn-success rounded-pill px-3 mt-auto" type="button">WindSlots</button>
-                        </div>
-                    </div>
+                        <button class="btn btn-success w-100 py-2" type="submit">Sign in</button>
+                    </form>
                 </div>
             </div>
-
-            <div id="myCarousel" class="carousel slide  p-0 mt-3" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
-                  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+            <div class="collapse mt-3" id="collapseRegister">
+                <div class="card card-body">
+                    <button type="button" class="btn-close" aria-label="Close" data-bs-toggle="collapse"
+                        data-bs-target="#collapseRegister"></button>
+                    <form>
+                        <h1 class="h3 mb-3 fw-normal text-center">Please register</h1>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="registerUsername" placeholder="Username"
+                                required>
+                            <label for="registerUsername">Username</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="registerEmail" placeholder="Email" required>
+                            <label for="registerEmail">Email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="registerPassword" placeholder="Password"
+                                required>
+                            <label for="registerPassword">Password</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="confirmPassword"
+                                placeholder="Confirm Password" required>
+                            <label for="confirmPassword">Confirm Password</label>
+                        </div>
+                        <div class="form-check text-start my-3">
+                            <input class="form-check-input" type="checkbox" value="terms" id="termsCheck" required>
+                            <label class="form-check-label" for="termsCheck">
+                                I agree to the <a href="#">terms and conditions</a>
+                            </label>
+                        </div>
+                        <button class="btn btn-secondary w-100 py-2" type="submit">Register</button>
+                    </form>
                 </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item">
-                    <img src="assets/Images/Parque.png" class="d-block w-100" style="height: 500px; width: 500px; object-fit: cover;">
-                    <div class="container">
-                      <div class="carousel-caption text-start">
-                        <h1>Bet on Clean Energy.<h1>
-                        <p class="opacity-75">With every bet you help fund renewable energy projects. Play with impact!</p>
-                        <p><a class="btn btn-lg btn-success" href="#cards">Play Now!</a></p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="carousel-item active">
-                    <img src="assets/Images/greencoin.png" class="d-block w-100" style="height: 500px; width: 500px; object-fit: cover;">
-                    <div class="container">
-                      <div class="carousel-caption">
-                        <h1>Start with an Advantage</h1>
-                        <p>Sign up today and receive free GreenCoins for your first games</p>
-                        <p><a class="btn btn-lg btn-success" href="#registerForm">Sign Up!</a></p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img src="assets/Images/medallas.jpg" class="d-block w-100" style="height: 500px; width: 500px; object-fit: cover;">
-                    <div class="container">
-                      <div class="carousel-caption text-end">
-                        <h1>Be Number 1 in Sustainability</h1>
-                        <p>Compete against other users, climb positions in the global ranking and demonstrate your commitment to energy saving.</p>
-                        <p><a class="btn btn-lg btn-success" href="#">Check the ranking</a></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
+            </div>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Community</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Blog</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                        aria-expanded="false">Games</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">EcoRoulette</a></li>
+                        <li><a class="dropdown-item" href="#">EcoChallenge</a></li>
+                        <li><a class="dropdown-item" href="#">WindSlots</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="d-none d-lg-block sticky-top">
+        <nav class="navbar navbar-expand-lg bg-success" aria-label="Thirteenth navbar example">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
+
+                <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
+                    <a class="navbar-brand col-lg-3 me-0" href="#">BetRG</a>
+                    <ul class="navbar-nav col-lg-6 justify-content-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Community</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                                aria-expanded="false">Games</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">EcoRoulette</a></li>
+                                <li><a class="dropdown-item" href="#">EcoChallenge</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+                        <a href="#contactForm" class="btn btn btn-outline-dark">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <main class="row justify-content-md-center mx-0">
+        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 mx-0" id="cards">
+            <div class="col text-center mb-2 mt-0">
+                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1"
+                        style="background-image: url('assets/Images/EcoRoulette.jpg'); background-size: cover; background-position: center;">
+                        <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-center">Donate a
+                            portion of your electric savings and invest them in ecological solutions</h3>
+                        <button class="btn btn-success rounded-pill px-3 mt-auto" type="button">EcoRoulette</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col text-center mb-2 mt-0">
+                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+                    style="background-image: url('assets/Images/Eco-challenge.png'); background-size: cover; background-position: center;">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                        <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
+                            Save more energy than others and win rewards. Compete, bet, and help the planet!
+                        </h3>
+                        <button class="btn btn-success rounded-pill px-3 mt-auto" type="button">EcoChallenge</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col text-center mb-2 mt-0">
+                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+                    style="background-image: url('assets/Images/WindSlots.jpg'); background-size: cover; background-position: center;">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                        <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Where renewable energy meets thrilling
+                            spins—play, win, and feel the power of the wind fueling your luck!</h3>
+                        <button class="btn btn-success rounded-pill px-3 mt-auto" type="button">WindSlots</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="myCarousel" class="carousel slide  p-0 mt-3" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class=""
+                    aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"
+                    class="active" aria-current="true"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"
+                    class=""></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <img src="assets/Images/Parque.png" class="d-block w-100"
+                        style="height: 500px; width: 500px; object-fit: cover;">
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <h1>Bet on Clean Energy.<h1>
+                                    <p class="opacity-75">With every bet you help fund renewable energy projects. Play
+                                        with impact!</p>
+                                    <p><a class="btn btn-lg btn-success" href="#cards">Play Now!</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item active">
+                    <img src="assets/Images/greencoin.png" class="d-block w-100"
+                        style="height: 500px; width: 500px; object-fit: cover;">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Start with an Advantage</h1>
+                            <p>Sign up today and receive free GreenCoins for your first games</p>
+                            <p><a class="btn btn-lg btn-success" href="#registerForm">Sign Up!</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/Images/medallas.jpg" class="d-block w-100"
+                        style="height: 500px; width: 500px; object-fit: cover;">
+                    <div class="container">
+                        <div class="carousel-caption text-end">
+                            <h1>Be Number 1 in Sustainability</h1>
+                            <p>Compete against other users, climb positions in the global ranking and demonstrate your
+                                commitment to energy saving.</p>
+                            <p><a class="btn btn-lg btn-success" href="#">Check the ranking</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
     </main>
-    
-    
+
+
     <footer>
         <div class="container-fluid text-white" style="background-color: #4e4e4e;">
             <div class="py-5 ms-5 me-5">
-              <div class="row">
-                <div class="col-6 col-md-2 mb-3">
-                  <h5>Community</h5>
-                  <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Home</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Features</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">About</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Games</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">FAQs</a></li>
-                  </ul>
-                </div>
-          
-                <div class="col-6 col-md-2 mb-3">
-                  <h5>Games</h5>
-                  <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">EcoRoulette</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">EcoChallenge</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">WindSlots</a></li>
-                  </ul>
-                </div>
-
-                <div class="col-6 col-md-2 mb-3">
-                    <h5>Blog</h5>
-                    <ul class="nav flex-column">
-                      <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Home</a></li>
-                      <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Recent</a></li>
-                      <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Most liked</a></li>
-                      <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">FAQs</a></li>
-                    </ul>
-                  </div>
-
-                
-              <div class="col-md-5 offset-md-1 mb-3" id="contactForm">
-                <form class="needs-validation" novalidate="">
-                    <div class="row g-3">
-                      <div class="col-sm-6">
-                        <label for="firstName" class="form-label">First name</label>
-                        <input type="text" class="form-control" id="firstName" value="" required="">
-                        <div class="invalid-feedback">
-                          Valid first name is required.
-                        </div>
-                      </div>
-          
-                      <div class="col-sm-6">
-                        <label for="lastName" class="form-label">Last name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-                        <div class="invalid-feedback">
-                          Valid last name is required.
-                        </div>
-                      </div>
-
-                      <div class="col-sm-6">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                        <div class="invalid-feedback">
-                          Please enter a valid email address for shipping updates.
-                        </div>
-                      </div>
-
-                      <div class="col-sm-6">
-                        <label for="phone" class="form-label">Phone</label>
-                        <input type="tel" class="form-control" id="phone">
-                        <div class="invalid-feedback">
-                          Please enter a valid phone.
-                        </div>
-                      </div>
-
-                      <div class="col-12">
-                        <label for="subject" class="form-label">Subject</label>
-                        <select class="form-select" id="subject" required>
-                            <option value="">Choose...</option>
-                            <option value="general">General Inquiry</option>
-                            <option value="support">Support</option>
-                            <option value="feedback">Feedback</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Please select a valid subject.
-                        </div>
+                <div class="row">
+                    <div class="col-6 col-md-2 mb-3">
+                        <h5>Community</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Home</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Features</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">About</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Games</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">FAQs</a></li>
+                        </ul>
                     </div>
 
-                    <div class="col-12">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea class="form-control" id="message" rows="3" required></textarea>
-                        <div class="invalid-feedback">
-                            Please enter a message in the textarea.
-                        </div>
+                    <div class="col-6 col-md-2 mb-3">
+                        <h5>Games</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">EcoRoulette</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">EcoChallenge</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">WindSlots</a></li>
+                        </ul>
                     </div>
-                    <hr class="my-4">
-                    <button class="w-100 btn btn-success btn-lg" type="submit">Submit</button>
-                </form>
-              </div>
-              </div>
+
+                    <div class="col-6 col-md-2 mb-3">
+                        <h5>Blog</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Home</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Recent</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Most liked</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">FAQs</a></li>
+                        </ul>
+                    </div>
+
+
+                    <div class="col-md-5 offset-md-1 mb-3" id="contactForm">
+                        <form class="needs-validation" novalidate="">
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <label for="firstName" class="form-label">First name</label>
+                                    <input type="text" class="form-control" id="firstName" value="" required="">
+                                    <div class="invalid-feedback">
+                                        Valid first name is required.
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label for="lastName" class="form-label">Last name</label>
+                                    <input type="text" class="form-control" id="lastName" placeholder="" value=""
+                                        required="">
+                                    <div class="invalid-feedback">
+                                        Valid last name is required.
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                                    <div class="invalid-feedback">
+                                        Please enter a valid email address for shipping updates.
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label for="phone" class="form-label">Phone</label>
+                                    <input type="tel" class="form-control" id="phone">
+                                    <div class="invalid-feedback">
+                                        Please enter a valid phone.
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <select class="form-select" id="subject" required>
+                                        <option value="">Choose...</option>
+                                        <option value="general">General Inquiry</option>
+                                        <option value="support">Support</option>
+                                        <option value="feedback">Feedback</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select a valid subject.
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" rows="3" required></textarea>
+                                    <div class="invalid-feedback">
+                                        Please enter a message in the textarea.
+                                    </div>
+                                </div>
+                                <hr class="my-4">
+                                <button class="w-100 btn btn-success btn-lg" type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-             <div class="d-flex flex-column flex-sm-column justify-content-between py-4 my-4 border-top">
-                <p>Fuente Adamina: Copyright (c) 2011, Cyreal (www.cyreal.org), with Reserved Font Name 'Adamina'.</p>
-                <p>Fuente Fira Sans: Copyright (c) 2012-2015, The Mozilla Foundation and Telefonica S.A.</p>
-                <p>Fuente Poly: Copyright (c) 2010, 2011 José Nicolás Silva Schwarzenberg , with Reserved Font Names "Poly".</p>
+            <div class="d-flex flex-column flex-sm-column justify-content-between pt-4 border-top">
+                <p class="secondary-text">Fuente Adamina: Copyright (c) 2011, Cyreal (www.cyreal.org), with Reserved
+                    Font Name 'Adamina'.</p>
+                <p class="secondary-text">Fuente Fira Sans: Copyright (c) 2012-2015, The Mozilla Foundation and
+                    Telefonica S.A.</p>
+                <p class="secondary-text">Fuente Poly: Copyright (c) 2010, 2011 José Nicolás Silva Schwarzenberg , with
+                    Reserved Font Names
+                    "Poly".</p>
                 <ul class="list-unstyled d-flex">
-                  <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-                  <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-                  <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">
+                                <use xlink:href="#instagram"></use>
+                            </svg></a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">
+                                <use xlink:href="#twitter"></use>
+                            </svg></a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">
+                                <use xlink:href="#facebook"></use>
+                            </svg></a></li>
                 </ul>
-              </div>
-          </div>
+            </div>
+        </div>
     </footer>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
 </body>
-
 </html>
